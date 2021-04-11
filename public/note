@@ -1,0 +1,5 @@
+npm i vform --save
+npm i v-markdown-editor --save
+npm i sweetalert2 --save
+npm i moment --save
+npm i vuex --save

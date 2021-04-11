@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('post', 'PostController@all_post');
 
-Route::get('admin', 'HomeController@admin');
+Route::get('dashboard', 'HomeController@admin');

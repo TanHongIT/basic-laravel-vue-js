@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import ExampleComponent from "./components/ExampleComponent";
-
+import AdminBase from "./components/admin/AdminBase.vue";
 const routes = [
     {
         /*
@@ -12,8 +12,8 @@ const routes = [
          | Admin Backend Routes
          |--------------------------------------------------------------------------|
          */
-         path: '/home',
-         component: ExampleComponent, // Change the desired Layout here
+         path: '/dashboard',
+         component: AdminBase, // Change the desired Layout here
          meta: { requiresAuth: true },
          children: []
     },
