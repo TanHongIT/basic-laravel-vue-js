@@ -1,6 +1,8 @@
 <?php
 
+use App\Category;
 use App\User;
+use App\Post;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -22,5 +24,27 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
+    ];
+});
+//https://github.com/fzaninotto/Faker
+$factory->define(Category::class, function (Faker $faker) {
+    return [
+        'cat_name' => $faker->name,
+        'cat_description' => $faker->sentence,
+    ];
+});
+$factory->define(Post::class, function (Faker $faker) {
+    return [
+        'cat_id' => function () {
+            return factory(Category::class)->create()->id;
+        },
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
+        'title' => $faker->sentence,
+        'description' => $faker->paragraph,
+        'thumbnail' => $faker->imageUrl,
+        'view_count' => 1,
+        'status' => 1,
     ];
 });
