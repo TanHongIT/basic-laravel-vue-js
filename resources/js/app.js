@@ -39,7 +39,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 //admin
 Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
-Vue.component('sidebar-admin-component', require('./views/layouts/partials/LayoutSideBar.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <sidebar-admin-component></sidebar-admin-component>
+      <SideBar></SideBar>
       <div class="main-panel">
         <!-- Navbar -->
         <nav
@@ -776,7 +776,7 @@
 </template>
 
 <script>
-import SideBar from '../views/layouts/partials/LayoutSideBar.vue';
+import SideBar from '../views/layouts/partials/LayoutSideBar';
 export default {
   components: {SideBar},
   mounted() {

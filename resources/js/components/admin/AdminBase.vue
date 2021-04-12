@@ -1,9 +1,17 @@
 <template>
   <div>
-      dfgr
+    <div class="wrapper">
+      <LayoutSideBar></LayoutSideBar>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import LayoutSideBar from "../../views/layouts/partials/LayoutSideBar";
+export default {
+  components: { LayoutSideBar },
+  mounted() {
+    console.log("Component mounted.");
+  },
+};
 </script>
