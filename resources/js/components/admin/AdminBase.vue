@@ -1,10 +1,9 @@
 <template>
-    
+  <div>
+      dfgr
+  </div>
 </template>
 
 <script>
-
-export default {
-
-}
+export default {};
 </script>

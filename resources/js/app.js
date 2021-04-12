@@ -3,6 +3,27 @@ import router from './router';
 
 window.Vue = require('vue');
 
+import Editor from 'v-markdown-editor';
+Vue.use(Editor);
+
+import store from './store';
+
+import { Form, HasError, AlertError } from 'vform';
+
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+window.Form = Form;
+// Sweet alert 2
+import swal from 'sweetalert2'
+window.swal = swal;
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+
+window.toast = toast
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -15,6 +36,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+//admin
+Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
 Vue.component('sidebar-admin-component', require('./views/layouts/partials/LayoutSideBar.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,4 +51,5 @@ const app = new Vue({
     data: {},
     methods: {},
     router: router,
+    store,
 });

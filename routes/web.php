@@ -11,14 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('post', 'PostController@all_post');
+Route::get('/dashboard', 'HomeController@admin')->name('admin');
 
-Route::get('dashboard', 'HomeController@admin');
+Route::group(['middleware' => ['auth']], function () {
+    //Category
+    Route::post('/add-category','CategoryController@addCategory');
+    Route::get('category','CategoryController@allCategories');
+    Route::get('edit-category/{id}','CategoryController@editCategory');
+    Route::post('update-category/{id}','CategoryController@updateCategory');
+    Route::get('/delete-category/{id}','CategoryController@selected_category');
+    Route::delete('category/{id}','CategoryController@deleteCategory');
+});
