@@ -3,3 +3,15 @@ npm i v-markdown-editor --save | npm install --save v-markdown-editor/dist/index
 npm i sweetalert2 --save
 npm i moment --save
 npm i vuex --save
+
+auth component---------------
+https://viblo.asia/p/tao-form-dang-nhap-laravel-vuejs-Do754wpelM6
+npm install @websanova/vue-auth
+npm install --save-dev vue-axios
+composer require tymon/jwt-auth
+  php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+  php artisan jwt:secret
+https://github.com/tymondesigns/jwt-auth/issues/1038#issuecomment-288528586
+
+php artisan make:controller AuthController
+

@@ -5,9 +5,28 @@
       <div class="page-header login-page header-filter" filter-color="black">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="container">
+          <div
+            class="alert alert-rose alert-with-icon"
+            data-notify="container"
+            v-if="error"
+          >
+            <i class="material-icons" data-notify="icon">notifications</i>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <i class="material-icons">close</i>
+            </button>
+            <span data-notify="message"
+              >There was an error, unable to sign in with those
+              credentials.</span
+            >
+          </div>
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-              <form class="form" method="POST" action="#">
+              <form class="form" method="POST" @submit.prevent="login">
                 <div class="card card-login card-hidden">
                   <div class="card-header card-header-rose text-center">
                     <h4 class="card-title">Login</h4>
@@ -59,6 +78,8 @@
                           type="email"
                           class="form-control"
                           placeholder="Email..."
+                          v-model="email"
+                          required
                         />
                       </div>
                     </span>
@@ -73,14 +94,16 @@
                           type="password"
                           class="form-control"
                           placeholder="Password..."
+                          v-model="password"
+                          required
                         />
                       </div>
                     </span>
                   </div>
                   <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-rose btn-link btn-lg"
-                      >Lets Go</a
-                    >
+                    <button type="submit" class="btn btn-rose btn-link btn-lg">
+                      Lets Go
+                    </button>
                   </div>
                 </div>
               </form>
@@ -101,7 +124,7 @@
                   <a href="http://blog.creative-tim.com/"> Blog </a>
                 </li>
                 <li>
-                  <a href="https://www.creative-tim.com/license"> Licenses </a>
+                  <router-link :to="{ name: 'register' }">Register</router-link>
                 </li>
               </ul>
             </nav>
@@ -123,6 +146,17 @@ import NavbarAuthLogin from "../layouts/partials/auth/NavbarAuthComponent";
 
 export default {
   components: { NavbarAuthLogin },
+  data() {
+    return {
+      email: "",
+      password: "",
+      error: false,
+    };
+  },
+  methods: {
+    login() {
+    },
+  },
   mounted() {
     console.log("Component mounted.");
 
