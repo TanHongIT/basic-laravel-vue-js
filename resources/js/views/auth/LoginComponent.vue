@@ -1,13 +1,13 @@
 <template>
   <div>
-    <NavbarLogin></NavbarLogin>
+    <NavbarAuthLogin></NavbarAuthLogin>
     <div class="wrapper wrapper-full-page">
       <div class="page-header login-page header-filter" filter-color="black">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="container">
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-              <form class="form" method="" action="#">
+              <form class="form" method="POST" action="#">
                 <div class="card card-login card-hidden">
                   <div class="card-header card-header-rose text-center">
                     <h4 class="card-title">Login</h4>
@@ -119,12 +119,20 @@
   </div>
 </template>
 <script>
-import NavbarLogin from "../layouts/partials/auth/NavbarComponent";
+import NavbarAuthLogin from "../layouts/partials/auth/NavbarAuthComponent";
 
 export default {
-  components: { NavbarLogin },
+  components: { NavbarAuthLogin },
   mounted() {
     console.log("Component mounted.");
+
+    $(document).ready(function () {
+      md.checkFullPageBackgroundImage();
+      setTimeout(function () {
+        // after 1000 ms we add the class animated to the login/register card
+        $(".card").removeClass("card-hidden");
+      }, 700);
+    });
   },
 };
 </script>
