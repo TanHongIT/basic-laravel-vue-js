@@ -1,5 +1,5 @@
 
-import {routes} from './router';
+import router from './router';
 
 window.Vue = require('vue');
 
@@ -19,7 +19,7 @@ window.Vue = require('vue');
 Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
 
 // Partials
-Vue.component('Layout-sidebar-auth', require('./views/layouts/partials/LayoutSidebar').default);
+Vue.component('layout-sidebar-auth', require('./views/layouts/partials/LayoutSidebar').default);
 Vue.component('Layout-navbar-auth', require('./views/layouts/partials/account/LayoutNavbar').default);
 
 // Blog
@@ -33,16 +33,9 @@ Vue.component('account-login-component', require('./views/auth/LoginComponent').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- const router = new VueRouter({
-    routes: routes,
-    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
-    linkActiveClass: 'active'
-});
-
 const app = new Vue({
     el: '#app',
     data: {},
     methods: {},
     router: router,
-    store,
 });

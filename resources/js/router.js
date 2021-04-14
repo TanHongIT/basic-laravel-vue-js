@@ -8,10 +8,10 @@ import AdminBase from "./components/admin/AdminBase.vue";
 import LoginComponent from "./views/auth/LoginComponent";
 import RegisterComponent from "./views/auth/RegisterComponent";
 import CategoryListComponent from "./components/admin/category/List.vue";
-import CategoryNewComponent from "./components/admin/category/New.vue"
-import CategoryEditComponent from "./components/admin/category/Edit.vue"
+import CategoryNewComponent from "./components/admin/category/New"
+import CategoryEditComponent from "./components/admin/category/Edit"
 
-export const routes = [
+const routes = [
     {
         /*
          |--------------------------------------------------------------------------
@@ -22,6 +22,10 @@ export const routes = [
         component: AdminBase, // Change the desired Layout here
         meta: { requiresAuth: true },
         children: []
+    },
+    {
+        path:'/post',
+        component:LoginComponent
     },
     {
         path:'/category-list',
@@ -53,4 +57,12 @@ export const routes = [
         }
     },
 
-]
+];
+
+const router = new VueRouter({
+    routes,
+    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+    linkActiveClass: 'active'
+});
+
+export default router;

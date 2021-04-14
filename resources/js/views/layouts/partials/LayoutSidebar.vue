@@ -151,3 +151,10 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  mounted() {
+    console.log("Layout Sidebar admin component mounted.");
+  },
+};
+</script>
