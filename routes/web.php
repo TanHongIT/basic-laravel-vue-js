@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'HomeController@admin')->name('admin');
 
+Route::get('/post','PostController@all_Post');
+
 Route::group(['middleware' => ['auth']], function () {
     //Category
     Route::post('/add-category','CategoryController@addCategory');

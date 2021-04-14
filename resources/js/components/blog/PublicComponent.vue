@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <SideBar></SideBar>
+      <Layout-sidebar-auth></Layout-sidebar-auth>
       <div class="main-panel">
         <!-- Navbar -->
         <nav
@@ -776,9 +776,7 @@
 </template>
 
 <script>
-import SideBar from '../views/layouts/partials/LayoutSideBar';
 export default {
-  components: {SideBar},
   mounted() {
     console.log("Component mounted.");
   },

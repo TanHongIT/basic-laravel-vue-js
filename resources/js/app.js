@@ -1,29 +1,9 @@
 
-import router from './router';
+import {routes} from './router';
 
 window.Vue = require('vue');
 
-import Editor from 'v-markdown-editor';
-Vue.use(Editor);
 
-import store from './store';
-
-import { Form, HasError, AlertError } from 'vform';
-
-Vue.component(HasError.name, HasError)
-Vue.component(AlertError.name, AlertError)
-window.Form = Form;
-// Sweet alert 2
-import swal from 'sweetalert2'
-window.swal = swal;
-const toast = swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-});
-
-window.toast = toast
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,10 +15,15 @@ window.toast = toast
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
 //admin
 Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
+
+// Partials
+Vue.component('Layout-sidebar-auth', require('./views/layouts/partials/LayoutSidebar').default);
+Vue.component('Layout-navbar-auth', require('./views/layouts/partials/account/LayoutNavbar').default);
+
+// Blog
+Vue.component('public-blog', require('./components/blog/PublicComponent').default);
 
 //auth
 Vue.component('account-login-component', require('./views/auth/LoginComponent').default);
@@ -47,6 +32,12 @@ Vue.component('account-login-component', require('./views/auth/LoginComponent').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+ const router = new VueRouter({
+    routes: routes,
+    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+    linkActiveClass: 'active'
+});
 
 const app = new Vue({
     el: '#app',

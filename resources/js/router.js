@@ -1,19 +1,17 @@
 // vue router
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueAxios from 'vue-axios';
-import axios from 'axios';
 
 Vue.use(VueRouter);
 
-Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://localhost:8000/api';
-
-import ExampleComponent from "./components/ExampleComponent";
 import AdminBase from "./components/admin/AdminBase.vue";
 import LoginComponent from "./views/auth/LoginComponent";
 import RegisterComponent from "./views/auth/RegisterComponent";
-const routes = [
+import CategoryListComponent from "./components/admin/category/List.vue";
+import CategoryNewComponent from "./components/admin/category/New.vue"
+import CategoryEditComponent from "./components/admin/category/Edit.vue"
+
+export const routes = [
     {
         /*
          |--------------------------------------------------------------------------
@@ -25,6 +23,19 @@ const routes = [
         meta: { requiresAuth: true },
         children: []
     },
+    {
+        path:'/category-list',
+        component:CategoryListComponent
+    },
+    {
+        path:'/add-category',
+        component:CategoryNewComponent
+    },
+    {
+        path:'/edit-category/:categoryid',
+        component:CategoryEditComponent
+    },
+
     {
         path: '/register',
         name: 'register',
@@ -42,12 +53,4 @@ const routes = [
         }
     },
 
-];
-
-const router = new VueRouter({
-    routes,
-    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
-    linkActiveClass: 'active'
-});
-
-export default router;
+]
