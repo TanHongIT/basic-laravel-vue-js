@@ -78,6 +78,11 @@ export default {
         .post("/add-category")
         .then((response) => {
           console.log("okkkkk");
+          this.$router.push("/category-list");
+          toast({
+            type: "success",
+            title: "Category Added successfully",
+          });
         })
         .catch(() => {});
     },
