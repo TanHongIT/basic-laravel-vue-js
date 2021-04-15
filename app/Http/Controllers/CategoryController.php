@@ -21,6 +21,14 @@ class CategoryController extends Controller
         ], 200);
     }
 
+    public function checkValidateCategory(Request $request){
+        $this->validate($request, [
+            'cat_name' => 'required|min:2|max:100',
+            'cat_description' => 'required|min:2|max:1000'
+        ]);
+        return ['message' => 'OK'];
+    }
+
     // function to add a category
     public function addCategory(Request $request)
     {

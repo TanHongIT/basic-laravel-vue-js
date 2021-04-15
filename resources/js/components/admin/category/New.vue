@@ -2,7 +2,7 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md">
+        <div class="col-md" @click.prevent="checkValidateCategory()">
           <form id="LoginValidation" role="form">
             <div class="card">
               <div class="card-header card-header-rose card-header-icon">
@@ -73,11 +73,19 @@ export default {
     };
   },
   methods: {
+    //check validate form add category
+    checkValidateCategory() {
+      this.form
+        .post("/check-category-validate")
+        .then((response) => {
+          console.log("Check OK");
+        })
+        .catch(() => {});
+    },
     addCategory() {
       this.form
         .post("/add-category")
         .then((response) => {
-          console.log("okkkkk");
           this.$router.push("/category-list");
           toast({
             type: "success",
