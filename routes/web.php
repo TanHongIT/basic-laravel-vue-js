@@ -33,6 +33,7 @@ Route::get('/post','PostController@all_Post');
 Route::group(['middleware' => ['auth']], function () {
     //Category
     Route::post('/add-category','CategoryController@addCategory');
+    Route::post('/check-category-validate','CategoryController@checkValidateCategory');
     Route::get('category','CategoryController@allCategories');
     Route::get('edit-category/{id}','CategoryController@editCategory');
     Route::post('update-category/{id}','CategoryController@updateCategory');
