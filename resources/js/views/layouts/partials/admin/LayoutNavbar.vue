@@ -20,7 +20,7 @@
             >
           </button>
         </div>
-        <a class="navbar-brand" href="#pablo">DataTables.net</a>
+        <a class="navbar-brand" href="#">Blog Laravel Mix Vue</a>
       </div>
       <button
         class="navbar-toggler"

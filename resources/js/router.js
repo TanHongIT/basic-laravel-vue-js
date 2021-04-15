@@ -24,10 +24,6 @@ const routes = [
         children: []
     },
     {
-        path:'/post',
-        component:LoginComponent
-    },
-    {
         path:'/category-list',
         component:CategoryListComponent
     },

@@ -2,8 +2,8 @@
 import router from './router';
 
 window.Vue = require('vue');
-
-
+window.axios = require('axios');
+import store from "./store";
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,8 +19,8 @@ window.Vue = require('vue');
 Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
 
 // Partials
-Vue.component('layout-sidebar-auth', require('./views/layouts/partials/LayoutSidebar').default);
-Vue.component('Layout-navbar-auth', require('./views/layouts/partials/account/LayoutNavbar').default);
+Vue.component('layout-sidebar-admin', require('./views/layouts/partials/admin/LayoutSidebar').default);
+Vue.component('layout-navbar-admin', require('./views/layouts/partials/admin/LayoutNavbar').default);
 
 // Blog
 Vue.component('public-blog', require('./components/blog/PublicComponent').default);
@@ -38,4 +38,5 @@ const app = new Vue({
     data: {},
     methods: {},
     router: router,
+    store,
 });

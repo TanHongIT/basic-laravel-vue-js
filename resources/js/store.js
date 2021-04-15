@@ -89,7 +89,7 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        categoreis(state, data) {
+        categories(state, data) {
             return state.category = data
         },
         allpost(state, payload) {
