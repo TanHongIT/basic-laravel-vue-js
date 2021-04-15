@@ -24,8 +24,10 @@ class CategoryController extends Controller
     // function to add a category
     public function addCategory(Request $request)
     {
+        // return $request->all();
         $this->validate($request, [
-            'name' => 'required|min:2|max:50'
+            'cat_name' => 'required|min:2|max:100',
+            'cat_description' => 'required|min:2|max:1000'
         ]);
         $category = new Category();
         $category->cat_name = $request->cat_name;

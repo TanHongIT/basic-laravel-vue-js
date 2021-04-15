@@ -15,3 +15,9 @@ https://github.com/tymondesigns/jwt-auth/issues/1038#issuecomment-288528586
 
 php artisan make:controller AuthController
 
+---------------------------
+Sử dụng Vuex để quản lý state trong VueJS
+https://viblo.asia/p/su-dung-vuex-de-quan-ly-state-trong-vuejs-djeZ1D4mKWz
+
+
+

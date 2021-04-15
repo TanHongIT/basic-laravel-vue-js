@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md">
-          <form id="LoginValidation" action="#" method="">
+          <form id="LoginValidation" role="form">
             <div class="card">
               <div class="card-header card-header-rose card-header-icon">
                 <div class="card-icon">
@@ -21,8 +21,11 @@
                     class="form-control"
                     id="exampleEmails"
                     required="true"
-                    name="emailadress"
+                    v-model="form.cat_name"
+                    name="cat_name"
+                    :class="{ 'is-invalid': form.errors.has('cat_name') }"
                   />
+                  <has-error :form="form" field="cat_name"></has-error>
                 </div>
                 <div class="form-group">
                   <label for="examplePasswords" class="bmd-label-floating">
@@ -32,13 +35,24 @@
                     type="text"
                     class="form-control"
                     id="examplePasswords"
-                    name="password"
+                    v-model="form.cat_description"
+                    name="cat_description"
+                    :class="{
+                      'is-invalid': form.errors.has('cat_description'),
+                    }"
                   />
+                  <has-error :form="form" field="cat_description"></has-error>
                 </div>
                 <div class="category form-category">* Required fields</div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-rose">Add</button>
+                <button
+                  @click.prevent="addCategory()"
+                  type="submit"
+                  class="btn btn-rose"
+                >
+                  Submit Add
+                </button>
               </div>
             </div>
           </form>
@@ -50,6 +64,24 @@
 <script>
 export default {
   name: "New",
+  data() {
+    return {
+      form: new Form({
+        cat_name: "",
+        cat_description: "",
+      }),
+    };
+  },
+  methods: {
+    addCategory() {
+      this.form
+        .post("/add-category")
+        .then((response) => {
+          console.log("okkkkk");
+        })
+        .catch(() => {});
+    },
+  },
   mounted() {
     console.log("Add New Category Component mounted");
   },

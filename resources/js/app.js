@@ -1,9 +1,15 @@
-
+require('./bootstrap');
 import router from './router';
 
 window.Vue = require('vue');
-window.axios = require('axios');
 import store from "./store";
+
+// V-form: https://github.com/cretueusebiu/vform
+import { Form, HasError, AlertError } from 'vform'
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+window.Form = Form; //call
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
