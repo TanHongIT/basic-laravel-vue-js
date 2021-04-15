@@ -72,7 +72,7 @@
           <div class="collapse" id="pagesExamples">
             <ul class="nav">
               <li class="nav-item">
-                <router-link class="nav-link" to="/category-list">
+                <router-link class="nav-link" to="/add-category">
                   <span class="sidebar-mini"> N </span>
                   <span class="sidebar-normal"> New </span>
                 </router-link>

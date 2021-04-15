@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="wrapper">
-    <layout-sidebar-auth></layout-sidebar-auth>
-    <admin-base-component></admin-base-component>
+    <layout-sidebar-admin></layout-sidebar-admin>
+    <div class="main-panel">
+        <layout-navbar-admin></layout-navbar-admin>
+        <admin-base-component></admin-base-component>
+    </div>
 </div>
 @endsection

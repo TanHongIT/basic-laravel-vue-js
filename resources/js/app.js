@@ -19,8 +19,8 @@ window.Vue = require('vue');
 Vue.component('admin-base-component', require('./components/admin/AdminBase').default);
 
 // Partials
-Vue.component('layout-sidebar-auth', require('./views/layouts/partials/LayoutSidebar').default);
-Vue.component('Layout-navbar-auth', require('./views/layouts/partials/account/LayoutNavbar').default);
+Vue.component('layout-sidebar-admin', require('./views/layouts/partials/admin/LayoutSidebar').default);
+Vue.component('layout-navbar-admin', require('./views/layouts/partials/admin/LayoutNavbar').default);
 
 // Blog
 Vue.component('public-blog', require('./components/blog/PublicComponent').default);

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <layout-sidebar-auth></layout-sidebar-auth>
+      <layout-sidebar-admin></layout-sidebar-admin>
       <div class="main-panel">
         <!-- Navbar -->
         <nav

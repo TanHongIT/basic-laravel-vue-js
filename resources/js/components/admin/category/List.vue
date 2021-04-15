@@ -1,129 +1,144 @@
 <template>
-    <div>
-        <section class="content">
-            <div class="row justify-content-around" >
-                <div class="col-8 ">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Category List</h3>
-
-                            <div class="card-tools">
-                                <button class="btn btn-primary">
-                                    <router-link to="/add-category" style="color:#fff"> Add Category</router-link>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        <select name="" id="" v-model="select" @change="deleteSelected">
-                                            <option value="">Select</option>
-                                            <option value="">Delete all</option>
-                                        </select><br>
-                                        <input type="checkbox" @click.prevent="selectAll" v-model="all_select">
-                                        <span v-if="all_select==false">Check All</span>
-                                        <span v-else>Uncheck All</span>
-                                    </th>
-                                    <th>Sl</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                <tr v-for="(category,index) in getallCategory" :key="category.id">
-                                    <td><input type="checkbox" v-model="categoryItem" :value="category.id" ></td>
-                                    <td>{{index+1}}</td>
-                                    <td>{{category.cat_name}}</td>
-                                    <td>{{category.created_at | timeformat}}</td>
-                                    <td>
-                                        <router-link :to="`/edit-category/${category.id}`">Edit</router-link>
-                                        <a href="" @click.prevent = "deletecategory(category.id)" >Delete</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-
-
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-
-                </div>
-                <!-- /.col -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-success">
+                      <span class="btn-label">
+                        <i class="material-icons">add</i>
+                      </span>
+                      Add New Category
+                    <div class="ripple-container"></div></button>
+          <div class="card">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Category List</h4>
+              
             </div>
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
+            <div class="card-body">
+              <div class="toolbar">
+                <!--        Here you can write extra buttons/actions for the toolbar              -->
+              </div>
+              <div class="material-datatables">
+                <table
+                  id="datatables"
+                  class="table table-striped table-no-bordered table-hover"
+                  cellspacing="0"
+                  width="100%"
+                  style="width: 100%"
+                >
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Date</th>
+                      <th class="disabled-sorting text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td class="text-right">
+                        <a
+                          href="#"
+                          class="btn btn-link btn-info btn-just-icon like"
+                          ><i class="material-icons">favorite</i></a
+                        >
+                        <a
+                          href="#"
+                          class="btn btn-link btn-warning btn-just-icon edit"
+                          ><i class="material-icons">dvr</i></a
+                        >
+                        <a
+                          href="#"
+                          class="btn btn-link btn-danger btn-just-icon remove"
+                          ><i class="material-icons">close</i></a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- end content-->
+          </div>
+          <!--  end card  -->
+        </div>
+        <!-- end col-md-12 -->
+      </div>
+      <!-- end row -->
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "List",
-        data(){
-            return{
-                categoryItem:[],
-                select:'',
-                all_select:false
-            }
+export default {
+  name: "List",
+  mounted() {
+    console.log("List Category Component mounted");
+    $(document).ready(function () {
+      $("#datatables").DataTable({
+        pagingType: "full_numbers",
+        lengthMenu: [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"],
+        ],
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Search records",
         },
-        mounted(){
-            this.$store.dispatch("allCategory")
-        },
-        computed:{
-           getallCategory(){
-            return this.$store.getters.getCategory
-           }
-        },
-        methods:{
-            deletecategory(id){
-               axios.get('/category/'+id)
-                   .then(()=>{
-                       this.$store.dispatch("allCategory")
-                       toast({
-                           type: 'success',
-                           title: 'Category Deleted successfully'
-                       })
-                   })
-                   .catch(()=>{
+      });
 
-                   })
-            },
-            deleteSelected(){
-                console.log(this.categoryItem)
-               axios.get('/deletecategory/'+this.categoryItem)
-                   .then(()=>{
-                       this.categoryItem = []
-                       this.$store.dispatch("allCategory")
-                       toast({
-                           type: 'success',
-                           title: 'Category Deleted successfully'
-                       })
+      var table = $("#datatable").DataTable();
 
-                   })
-            },
-            selectAll(){
-                if(this.all_select==false){
-                    this.all_select = true
-                    for(var category in this.getallCategory){
-                        this.categoryItem.push(this.getallCategory[category].id)
-                    }
-                }else{
-                    this.all_select = false
-                    this.categoryItem = []
-                }
+      // Edit record
+      table.on("click", ".edit", function () {
+        $tr = $(this).closest("tr");
+        var data = table.row($tr).data();
+        alert(
+          "You press on Row: " +
+            data[0] +
+            " " +
+            data[1] +
+            " " +
+            data[2] +
+            "'s row."
+        );
+      });
 
+      // Delete a record
+      table.on("click", ".remove", function (e) {
+        $tr = $(this).closest("tr");
+        table.row($tr).remove().draw();
+        e.preventDefault();
+      });
 
-            }
-        }
-    }
+      //Like record
+      table.on("click", ".like", function () {
+        alert("You clicked on Like button");
+      });
+    });
+  },
+};
 </script>
 
 <style scoped>
