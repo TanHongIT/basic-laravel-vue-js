@@ -115,7 +115,7 @@
             <nav class="float-left">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com/"> Creative Tim </a>
+                  <a href="https://tanhongit.com/"> Creative Tim </a>
                 </li>
                 <li>
                   <a href="https://creative-tim.com/presentation"> About Us </a>
@@ -130,7 +130,7 @@
             </nav>
             <div class="copyright float-right">
               &copy; , made with <i class="material-icons">favorite</i> by
-              <a href="https://www.creative-tim.com/" target="_blank"
+              <a href="https://tanhongit.com/" target="_blank"
                 >Creative Tim</a
               >
               for a better web.

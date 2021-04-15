@@ -11,10 +11,10 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-      <a href="http://www.creative-tim.com/" class="simple-text logo-mini">
+      <a href="http://tanhongit.com/" class="simple-text logo-mini">
         Blog
       </a>
-      <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
+      <a href="http://tanhongit.com/" class="simple-text logo-normal">
         Laravel Vuejs
       </a>
     </div>
