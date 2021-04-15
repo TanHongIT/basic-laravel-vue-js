@@ -644,7 +644,7 @@
             <nav class="float-left">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com/"> Creative Tim </a>
+                  <a href="https://tanhongit.com/"> Creative Tim </a>
                 </li>
                 <li>
                   <a href="https://creative-tim.com/presentation"> About Us </a>
@@ -653,14 +653,14 @@
                   <a href="http://blog.creative-tim.com/"> Blog </a>
                 </li>
                 <li>
-                  <a href="https://www.creative-tim.com/license"> Licenses </a>
+                  <a href="https://tanhongit.com/license"> Licenses </a>
                 </li>
               </ul>
             </nav>
             <div class="copyright float-right">
               &copy;
               , made with <i class="material-icons">favorite</i> by
-              <a href="https://www.creative-tim.com/" target="_blank"
+              <a href="https://tanhongit.com/" target="_blank"
                 >Creative Tim</a
               >
               for a better web.
@@ -751,11 +751,11 @@
                       </a>
                     </li>
                     <li class="button-container">
-                      <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-rose btn-block btn-fill">Buy Now</a>
+                      <a href="https://tanhongit.com/product/material-dashboard-pro" target="_blank" class="btn btn-rose btn-block btn-fill">Buy Now</a>
                       <a href="https://demos.creative-tim.com/material-dashboard-pro/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
                         Documentation
                       </a>
-                      <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-info btn-block">
+                      <a href="https://tanhongit.com/product/material-dashboard" target="_blank" class="btn btn-info btn-block">
                         Get Free Demo!
                       </a>
                     </li>
