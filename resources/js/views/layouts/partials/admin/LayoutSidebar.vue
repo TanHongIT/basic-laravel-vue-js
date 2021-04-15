@@ -12,10 +12,10 @@
     -->
     <div class="logo">
       <a href="http://www.creative-tim.com/" class="simple-text logo-mini">
-        CT
+        Blog
       </a>
       <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
-        Creative Tim
+        Laravel Vuejs
       </a>
     </div>
     <div class="sidebar-wrapper">
@@ -72,15 +72,15 @@
           <div class="collapse" id="pagesExamples">
             <ul class="nav">
               <li class="nav-item">
-                <router-link class="nav-link" to="/add-category">
-                  <span class="sidebar-mini"> N </span>
-                  <span class="sidebar-normal"> New </span>
-                </router-link>
-              </li>
-              <li class="nav-item">
                 <router-link class="nav-link" to="/category-list">
                   <span class="sidebar-mini"> L </span>
                   <span class="sidebar-normal"> List </span>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/add-category">
+                  <span class="sidebar-mini"> N </span>
+                  <span class="sidebar-normal"> Add New </span>
                 </router-link>
               </li>
             </ul>

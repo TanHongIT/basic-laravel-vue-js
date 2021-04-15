@@ -3,19 +3,19 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <button class="btn btn-success">
-                      <span class="btn-label">
-                        <i class="material-icons">add</i>
-                      </span>
-                      Add New Category
-                    <div class="ripple-container"></div></button>
+          <router-link to="/add-category" class="btn btn-success">
+            <span class="btn-label">
+              <i class="material-icons">add</i>
+            </span>
+            Add New Category
+            <div class="ripple-container"></div>
+          </router-link>
           <div class="card">
             <div class="card-header card-header-primary card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">assignment</i>
               </div>
               <h4 class="card-title">Category List</h4>
-              
             </div>
             <div class="card-body">
               <div class="toolbar">
