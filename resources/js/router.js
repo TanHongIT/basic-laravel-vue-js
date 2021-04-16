@@ -11,6 +11,8 @@ import CategoryListComponent from "./components/admin/category/List.vue";
 import CategoryNewComponent from "./components/admin/category/New"
 import CategoryEditComponent from "./components/admin/category/Edit"
 
+import PublicComponent from "./components/blog/PublicComponent";
+
 const routes = [
     {
         /*
@@ -52,12 +54,15 @@ const routes = [
             auth: false
         }
     },
-
+    {
+        path:'/',
+        component:PublicComponent
+    },
 ];
 
 const router = new VueRouter({
     routes,
-    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+    mode: 'hash', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
     linkActiveClass: 'active'
 });
 
