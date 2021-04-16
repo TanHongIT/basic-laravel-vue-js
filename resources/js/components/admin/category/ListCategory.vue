@@ -31,31 +31,34 @@
                 >
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Date</th>
+                      <th>STT</th>
+                      <th>ID</th>
+                      <th>Caagory Name</th>
+                      <th>Caagory Description</th>
+                      <th>Create Date</th>
                       <th class="disabled-sorting text-right">Actions</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
+                      <th>STT</th>
+                      <th>ID</th>
+                      <th>Caagory Name</th>
+                      <th>Caagory Description</th>
+                      <th>Create Date</th>
                       <th class="text-right">Actions</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>{{ getallCategory }}</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
+                    <tr
+                      v-for="(category, index) in getallCategory"
+                      :key="category.id"
+                    >
+                      <td>{{ index + 1 }}</td>
+                      <td>{{ category.id }}</td>
+                      <td>{{ category.cat_name }}</td>
+                      <td>{{ category.cat_description }}</td>
+                      <td>{{ category.created_at }}</td>
                       <td class="text-right">
                         <a
                           href="#"
@@ -92,55 +95,21 @@
 <script>
 export default {
   name: "List",
+  data() {
+    return {
+      status_table: false,
+    };
+  },
   mounted() {
     console.log("List Category Component mounted");
-    $(document).ready(function () {
-      $("#datatables").DataTable({
-        pagingType: "full_numbers",
-        lengthMenu: [
-          [10, 25, 50, -1],
-          [10, 25, 50, "All"],
-        ],
-        responsive: true,
-        language: {
-          search: "_INPUT_",
-          searchPlaceholder: "Search records",
-        },
-      });
 
-      var table = $("#datatable").DataTable();
-
-      // Edit record
-      table.on("click", ".edit", function () {
-        $tr = $(this).closest("tr");
-        var data = table.row($tr).data();
-        alert(
-          "You press on Row: " +
-            data[0] +
-            " " +
-            data[1] +
-            " " +
-            data[2] +
-            "'s row."
-        );
-      });
-
-      // Delete a record
-      table.on("click", ".remove", function (e) {
-        $tr = $(this).closest("tr");
-        table.row($tr).remove().draw();
-        e.preventDefault();
-      });
-
-      //Like record
-      table.on("click", ".like", function () {
-        alert("You clicked on Like button");
-      });
-    });
+    // mount action allCategory store.js
+    this.$store.dispatch("allCategory");
   },
   computed: {
     getallCategory() {
-      return this.$store.dispatch("allCategory");
+      this.status_table = true;
+      return this.$store.getters.getCategory;
     },
   },
 };

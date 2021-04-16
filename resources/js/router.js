@@ -62,7 +62,7 @@ const routes = [
 
 const router = new VueRouter({
     routes,
-    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+    mode: 'hash', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
     linkActiveClass: 'active'
 });
 
