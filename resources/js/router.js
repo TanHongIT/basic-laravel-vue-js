@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 import AdminBase from "./components/admin/AdminBase.vue";
 import LoginComponent from "./views/auth/LoginComponent";
 import RegisterComponent from "./views/auth/RegisterComponent";
-import CategoryListComponent from "./components/admin/category/List.vue";
+import CategoryListComponent from "./components/admin/category/ListCategory.vue";
 import CategoryNewComponent from "./components/admin/category/New"
 import CategoryEditComponent from "./components/admin/category/Edit"
 

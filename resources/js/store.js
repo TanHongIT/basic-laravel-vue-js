@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         category: [],
+        test_category: "This is show category test",
         post: [],
         blogpost: [],
         singlePost: [],
@@ -15,6 +16,9 @@ const store = new Vuex.Store({
     getters: {
         getCategory(state) {
             return state.category
+        },
+        etCategoryTest(state) {
+            return state.test_category
         },
         getAllPost(state) {
             return state.post

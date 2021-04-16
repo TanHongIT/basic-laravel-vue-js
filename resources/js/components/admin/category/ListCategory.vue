@@ -52,7 +52,7 @@
                   <tbody>
                     <tr>
                       <td>Tiger Nixon</td>
-                      <td>System Architect</td>
+                      <td>{{getallCategory}}</td>
                       <td>Edinburgh</td>
                       <td>61</td>
                       <td>2011/04/25</td>
@@ -137,6 +137,11 @@ export default {
         alert("You clicked on Like button");
       });
     });
+  },
+  computed: {
+    getallCategory() {
+      return this.$store.getters.etCategoryTest;
+    },
   },
 };
 </script>
