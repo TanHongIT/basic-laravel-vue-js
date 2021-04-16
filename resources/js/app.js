@@ -10,6 +10,9 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form; //call
 
+//Support moment js with vue filter
+// import moment from 'moment';
+import {filter} from './filter'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

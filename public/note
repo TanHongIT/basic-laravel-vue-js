@@ -1,7 +1,6 @@
 npm i vform --save
 npm i v-markdown-editor --save | npm install --save v-markdown-editor/dist/index.css
 npm i sweetalert2 --save
-npm i moment --save
 
 auth component---------------
 https://viblo.asia/p/tao-form-dang-nhap-laravel-vuejs-Do754wpelM6
@@ -24,4 +23,10 @@ setting vuex
 tutorial
 https://vuex.vuejs.org/guide/getters.html#method-style-access
 
+----------------------------
+npm i moment --save
 
+https://momentjs.com/
+https://momentjs.com/docs/#/use-it/node-js/
+
+https://vuejs.org/v2/guide/filters.html

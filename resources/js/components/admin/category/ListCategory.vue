@@ -58,7 +58,7 @@
                       <td>{{ category.id }}</td>
                       <td>{{ category.cat_name }}</td>
                       <td>{{ category.cat_description }}</td>
-                      <td>{{ category.created_at }}</td>
+                      <td>{{ category.created_at | time_format}}</td>
                       <td class="text-right">
                         <a
                           href="#"
