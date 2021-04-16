@@ -52,7 +52,7 @@
                   <tbody>
                     <tr>
                       <td>Tiger Nixon</td>
-                      <td>{{getallCategory}}</td>
+                      <td>{{ getallCategory }}</td>
                       <td>Edinburgh</td>
                       <td>61</td>
                       <td>2011/04/25</td>
@@ -140,7 +140,7 @@ export default {
   },
   computed: {
     getallCategory() {
-      return this.$store.getters.etCategoryTest;
+      return this.$store.dispatch("allCategory");
     },
   },
 };

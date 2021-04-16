@@ -41,6 +41,7 @@ const store = new Vuex.Store({
         allCategory(context) {
             axios.get('/category')
                 .then((response) => {
+                    console.log(response.data);
                     context.commit('categories', response.data.categories)
                 })
         },
