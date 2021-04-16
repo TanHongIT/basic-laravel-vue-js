@@ -1,3 +1,4 @@
+// Support vuex
 import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
@@ -5,15 +6,19 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         category: [],
+        test_category: "This is show category test",
         post: [],
         blogpost: [],
         singlePost: [],
         all_categories: [],
-        latestpost: []
+        latest_post: []
     },
     getters: {
         getCategory(state) {
             return state.category
+        },
+        etCategoryTest(state) {
+            return state.test_category
         },
         getAllPost(state) {
             return state.post
@@ -27,8 +32,8 @@ const store = new Vuex.Store({
         all_categories(state) {
             return state.all_categories
         },
-        latestpost(state) {
-            return state.latestpost
+        latest_post(state) {
+            return state.latest_post
         }
 
     },
@@ -46,47 +51,6 @@ const store = new Vuex.Store({
                     context.commit('all_post', response.data.posts)
                 })
         },
-        getBlogPost(context) {
-            axios.get('/blogpost')
-                .then((response) => {
-                    // console.log(response.data)
-                    context.commit('getBlogPost', response.data.posts)
-                })
-        },
-        getPostById(context, payload) {
-            axios.get('/singlePost/' + payload)
-                .then((response) => {
-                    context.commit('singlePost', response.data.post)
-                })
-        },
-        all_categories(context) {
-            axios.get('/categories')
-                .then((response) => {
-
-                    context.commit('all_categories', response.data.categories)
-                })
-        },
-        getPostByCatId(context, payload) {
-            axios.get('/category-post/' + payload)
-                .then((response) => {
-                    console.log(response.data.posts)
-                    context.commit('getPostByCatId', response.data.posts)
-                })
-        },
-        SearchPost(context, payload) {
-            axios.get('/search?s=' + payload)
-                .then((response) => {
-                    context.commit('getSearchPost', response.data.posts)
-                })
-
-        },
-        latestPost(context) {
-            axios.get('/latest-post')
-                .then((response) => {
-                    // console.log(response.data)
-                    context.commit('latest-post', response.data.posts)
-                })
-        }
     },
     mutations: {
         categories(state, data) {
@@ -110,8 +74,8 @@ const store = new Vuex.Store({
         getSearchPost(state, payload) {
             state.blogpost = payload
         },
-        latestpost(state, payload) {
-            state.latestpost = payload
+        latest_post(state, payload) {
+            state.latest_post = payload
         }
     }
 });

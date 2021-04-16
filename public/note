@@ -2,7 +2,6 @@ npm i vform --save
 npm i v-markdown-editor --save | npm install --save v-markdown-editor/dist/index.css
 npm i sweetalert2 --save
 npm i moment --save
-npm i vuex --save
 
 auth component---------------
 https://viblo.asia/p/tao-form-dang-nhap-laravel-vuejs-Do754wpelM6
@@ -19,5 +18,10 @@ php artisan make:controller AuthController
 Sử dụng Vuex để quản lý state trong VueJS
 https://viblo.asia/p/su-dung-vuex-de-quan-ly-state-trong-vuejs-djeZ1D4mKWz
 
+npm i vuex --save
+setting vuex
+
+tutorial
+https://vuex.vuejs.org/guide/getters.html#method-style-access
 
 
