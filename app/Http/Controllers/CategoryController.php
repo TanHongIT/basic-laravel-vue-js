@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function checkValidateCategory(Request $request){
         $this->validate($request, [
             'cat_name' => 'required|min:2|max:100',
-            'cat_description' => 'required|min:2|max:1000'
+            'cat_description' => 'required|min:2|max:10000'
         ]);
         return ['message' => 'OK'];
     }
@@ -35,7 +35,7 @@ class CategoryController extends Controller
         // return $request->all();
         $this->validate($request, [
             'cat_name' => 'required|min:2|max:100',
-            'cat_description' => 'required|min:2|max:1000'
+            'cat_description' => 'required|min:2|max:10000'
         ]);
         $category = new Category();
         $category->cat_name = $request->cat_name;
