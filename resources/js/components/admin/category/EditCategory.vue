@@ -10,7 +10,7 @@
                   <i class="material-icons">edit</i>
                 </div>
                 <h4 class="card-title">
-                  Edit The Category 
+                  Edit The Category (ID: {{ this.$route.params.categoryid }})
                 </h4>
               </div>
               <div class="card-body">
