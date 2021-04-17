@@ -2,7 +2,7 @@
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md">
+        <div class="col-md" @click.prevent="checkValidateCategory()">
           <form id="LoginValidation" role="form">
             <div class="card">
               <div class="card-header card-header-rose card-header-icon">
@@ -48,7 +48,13 @@
                 <div class="category form-category">* Required fields</div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-rose">Submit Add</button>
+                <button
+                  @submit.prevent="updateCategory()"
+                  type="submit"
+                  class="btn btn-rose"
+                >
+                  Submit Edit
+                </button>
               </div>
             </div>
           </form>
@@ -68,16 +74,29 @@ export default {
       }),
     };
   },
+  mounted() {
+    axios
+      .get(`/edit-category/${this.$route.params.categoryid}`)
+      .then((response) => {
+        // update form data
+        this.form.fill(response.data.category);
+      });
+  },
   methods: {
+    //check validate form add category
+    checkValidateCategory() {
+      this.form
+        .post("/check-category-validate")
+        .then((response) => {
+          console.log("Check OK");
+        })
+        .catch(() => {});
+    },
     updateCategory() {
       this.form
         .post(`/update-category/${this.$route.params.categoryid}`)
         .then((response) => {
           this.$router.push("/category-list");
-          toast({
-            type: "success",
-            title: "Category Updated successfully",
-          });
         })
         .catch(() => {});
     },

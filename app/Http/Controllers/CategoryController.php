@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $category->cat_name = $request->cat_name;
         $category->cat_description = $request->cat_description;
         $category->save();
-        return ['message' => 'OK'];
+        return ['message' => 'Add done'];
     }
 
     // function to find a category
@@ -56,12 +56,14 @@ class CategoryController extends Controller
     // updates the category 
     public function updateCategory (Request $request, $id){
         $this->validate($request,[
-            'name'=>'required|min:2|max:50'
+            'cat_name' => 'required|min:2|max:100',
+            'cat_description' => 'required|min:2|max:10000'
         ]);
         $category = Category::find($id);
         $category->cat_name = $request->cat_name;
         $category->cat_description = $request->cat_description;
         $category->save();
+        return ['message' => 'Edited'];
     }
 
     // deletes the category
