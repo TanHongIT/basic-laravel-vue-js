@@ -58,7 +58,7 @@
                       <td>{{ category.id }}</td>
                       <td>{{ category.cat_name }}</td>
                       <td>{{ category.cat_description }}</td>
-                      <td>{{ category.created_at | time_format}}</td>
+                      <td>{{ category.created_at | time_format }}</td>
                       <td class="text-right">
                         <a
                           href="#"
@@ -71,9 +71,9 @@
                           ><i class="material-icons">dvr</i></a
                         >
                         <a
-                          href="#"
+                          @click.prevent="deletecategory(category.id)"
                           class="btn btn-link btn-danger btn-just-icon remove"
-                          ><i class="material-icons">close</i></a
+                          ><i class="material-icons">delete</i></a
                         >
                       </td>
                     </tr>
@@ -110,6 +110,17 @@ export default {
     getallCategory() {
       this.status_table = true;
       return this.$store.getters.getCategory;
+    },
+  },
+  methods: {
+    deletecategory(id) {
+      axios
+        .delete("/delete-a-category/" + id)
+        .then((responses) => {
+          this.$store.dispatch("allCategory");
+          console.log(responses.data);
+        })
+        .catch(() => {});
     },
   },
 };

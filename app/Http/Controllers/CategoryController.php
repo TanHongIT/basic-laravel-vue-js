@@ -68,5 +68,6 @@ class CategoryController extends Controller
     public function deleteCategory ($id){
         $category = Category::find($id);
         $category->delete();
+        return 'Deleted';
     }
 }
