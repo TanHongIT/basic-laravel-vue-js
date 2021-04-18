@@ -10,7 +10,7 @@
                   <i class="material-icons">edit</i>
                 </div>
                 <h4 class="card-title">
-                  Edit The Category (ID: {{ this.$route.params.categoryid }})
+                  Edit The Category (ID: {{ this.$route.params.category_id }})
                 </h4>
               </div>
               <div class="card-body">
@@ -49,7 +49,7 @@
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button
-                  @submit.prevent="updateCategory()"
+                  @click.prevent="updateCategory()"
                   type="submit"
                   class="btn btn-rose"
                 >
@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`/edit-category/${this.$route.params.categoryid}`)
+      .get(`/edit-category/${this.$route.params.category_id}`)
       .then((response) => {
         // update form data
         this.form.fill(response.data.category);
@@ -87,14 +87,11 @@ export default {
     checkValidateCategory() {
       this.form
         .post("/check-category-validate")
-        .then((response) => {
-          console.log("Check OK");
-        })
         .catch(() => {});
     },
     updateCategory() {
       this.form
-        .post(`/update-category/${this.$route.params.categoryid}`)
+        .post(`/update-category/${this.$route.params.category_id}`)
         .then((response) => {
           this.$router.push("/category-list");
         })
