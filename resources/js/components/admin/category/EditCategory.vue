@@ -7,9 +7,11 @@
             <div class="card">
               <div class="card-header card-header-rose card-header-icon">
                 <div class="card-icon">
-                  <i class="material-icons">add</i>
+                  <i class="material-icons">edit</i>
                 </div>
-                <h4 class="card-title">Add New Category</h4>
+                <h4 class="card-title">
+                  Edit The Category (ID: {{ this.$route.params.category_id }})
+                </h4>
               </div>
               <div class="card-body">
                 <div class="form-group">
@@ -47,11 +49,11 @@
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button
-                  @click.prevent="addCategory()"
+                  @click.prevent="updateCategory()"
                   type="submit"
                   class="btn btn-rose"
                 >
-                  Submit Add
+                  Submit Edit
                 </button>
               </div>
             </div>
@@ -63,7 +65,7 @@
 </template>
 <script>
 export default {
-  name: "New",
+  name: "Edit",
   data() {
     return {
       form: new Form({
@@ -72,31 +74,29 @@ export default {
       }),
     };
   },
+  mounted() {
+    axios
+      .get(`/edit-category/${this.$route.params.category_id}`)
+      .then((response) => {
+        // update form data
+        this.form.fill(response.data.category);
+      });
+  },
   methods: {
     //check validate form add category
     checkValidateCategory() {
       this.form
         .post("/check-category-validate")
-        .then((response) => {
-          console.log("Check OK");
-        })
         .catch(() => {});
     },
-    addCategory() {
+    updateCategory() {
       this.form
-        .post("/add-category")
+        .post(`/update-category/${this.$route.params.category_id}`)
         .then((response) => {
           this.$router.push("/category-list");
-          toast({
-            type: "success",
-            title: "Category Added successfully",
-          });
         })
         .catch(() => {});
     },
-  },
-  mounted() {
-    console.log("Add New Category Component mounted");
   },
 };
 </script>

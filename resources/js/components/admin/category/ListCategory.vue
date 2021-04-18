@@ -60,10 +60,10 @@
                       <td>{{ category.cat_description }}</td>
                       <td>{{ category.created_at | time_format }}</td>
                       <td class="text-right">
-                        <a
-                          href="#"
+                        <router-link
+                          :to="`/edit-category/${category.id}`"
                           class="btn btn-link btn-info btn-just-icon like"
-                          ><i class="material-icons">favorite</i></a
+                          ><i class="material-icons">edit</i></router-link
                         >
                         <a
                           href="#"

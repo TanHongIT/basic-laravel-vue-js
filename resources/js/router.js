@@ -7,9 +7,9 @@ Vue.use(VueRouter);
 import AdminBase from "./components/admin/AdminBase.vue";
 import LoginComponent from "./views/auth/LoginComponent";
 import RegisterComponent from "./views/auth/RegisterComponent";
-import CategoryListComponent from "./components/admin/category/ListCategory.vue";
-import CategoryNewComponent from "./components/admin/category/New"
-import CategoryEditComponent from "./components/admin/category/Edit"
+import CategoryListComponent from "./components/admin/category/ListCategory";
+import CategoryNewComponent from "./components/admin/category/NewCategory"
+import CategoryEditComponent from "./components/admin/category/EditCategory"
 
 import PublicComponent from "./components/blog/PublicComponent";
 
@@ -34,7 +34,7 @@ const routes = [
         component:CategoryNewComponent
     },
     {
-        path:'/edit-category/:categoryid',
+        path:'/edit-category/:category_id',
         component:CategoryEditComponent
     },
 
