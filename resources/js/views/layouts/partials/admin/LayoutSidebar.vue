@@ -56,7 +56,7 @@
       </div>
       <ul class="nav">
         <li class="nav-item active">
-          <router-link class="nav-link" to="/dashboard">
+          <router-link class="nav-link" to="/admin">
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
           </router-link>
@@ -72,13 +72,13 @@
           <div class="collapse" id="pagesExamples">
             <ul class="nav">
               <li class="nav-item">
-                <router-link class="nav-link" to="/category-list">
+                <router-link class="nav-link" to="/admin/category-list">
                   <span class="sidebar-mini"> L </span>
                   <span class="sidebar-normal"> List </span>
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/add-category">
+                <router-link class="nav-link" to="/admin/add-category">
                   <span class="sidebar-mini"> N </span>
                   <span class="sidebar-normal"> Add New </span>
                 </router-link>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<public-blog></public-blog>
+ <router-view></router-view>
 @endsection

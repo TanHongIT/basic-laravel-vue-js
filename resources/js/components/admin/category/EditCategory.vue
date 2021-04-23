@@ -93,7 +93,7 @@ export default {
       this.form
         .post(`/update-category/${this.$route.params.category_id}`)
         .then((response) => {
-          this.$router.push("/category-list");
+          this.$router.push("/admin/category-list");
         })
         .catch(() => {});
     },

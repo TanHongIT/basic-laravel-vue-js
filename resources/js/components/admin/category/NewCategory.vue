@@ -84,7 +84,7 @@ export default {
     },
     addCategory() {
       this.form
-        .post("/add-category")
+        .post("/admin/add-category")
         .then((response) => {
           this.$router.push("/category-list");
         })

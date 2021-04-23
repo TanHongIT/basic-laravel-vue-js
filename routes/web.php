@@ -21,12 +21,16 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/dashboard', 'HomeController@admin')->name('admin');
+Route::get('/admin', 'HomeController@admin')->name('admin');
 
 // Route::get('{anypath}','HomeController@index')->where('path','.*');
 // Route::get('{any}', function () {
 //     return view('admin.adminbase');
 // })->where('any','.*');
+
+Route::get('/admin/{vue?}', function () {
+    return view('admin.adminbase');
+})->where('vue', '[\/\w\.-]*')->name('admin');
 
 Route::get('/post','PostController@all_Post');
 
@@ -34,7 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
     //Category
     Route::post('/add-category','CategoryController@addCategory');
     Route::post('/check-category-validate','CategoryController@checkValidateCategory');
-    Route::get('category','CategoryController@allCategories');
+    Route::get('get-all-category','CategoryController@allCategories');
     Route::get('edit-category/{id}','CategoryController@editCategory');
     Route::post('update-category/{id}','CategoryController@updateCategory');
     Route::get('/delete-category/{id}','CategoryController@selected_category');
