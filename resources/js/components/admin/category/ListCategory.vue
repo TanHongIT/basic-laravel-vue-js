@@ -115,7 +115,7 @@ export default {
   methods: {
     deletecategory(id) {
       axios
-        .delete("/delete-a-category/" + id)
+        .delete("/admin/delete-a-category/" + id)
         .then((responses) => {
           this.$store.dispatch("allCategory");
           console.log(responses.data);

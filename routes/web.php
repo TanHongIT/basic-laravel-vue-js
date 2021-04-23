@@ -35,11 +35,11 @@ Route::group(['middleware' => ['auth']], function () {
     })->where('vue', '[\/\w\.-]*')->name('admin');
 
     //Category
-    Route::post('/add-category','CategoryController@addCategory');
-    Route::post('/check-category-validate','CategoryController@checkValidateCategory');
+    Route::post('/admin/add-category','CategoryController@addCategory');
+    Route::post('/admin/check-category-validate','CategoryController@checkValidateCategory');
     Route::get('get-all-category','CategoryController@allCategories');
-    Route::get('edit-category/{id}','CategoryController@editCategory');
-    Route::post('update-category/{id}','CategoryController@updateCategory');
-    Route::get('/delete-category/{id}','CategoryController@selected_category');
-    Route::delete('delete-a-category/{id}','CategoryController@deleteCategory');
+    Route::get('/edit-category/{id}','CategoryController@editCategory');
+    Route::post('admin/update-category/{id}','CategoryController@updateCategory');
+    Route::get('/admin/delete-category/{id}','CategoryController@selected_category');
+    Route::delete('admin/delete-a-category/{id}','CategoryController@deleteCategory');
 });

@@ -86,12 +86,12 @@ export default {
     //check validate form add category
     checkValidateCategory() {
       this.form
-        .post("/check-category-validate")
+        .post("/admin/check-category-validate")
         .catch(() => {});
     },
     updateCategory() {
       this.form
-        .post(`/update-category/${this.$route.params.category_id}`)
+        .post(`/admin/update-category/${this.$route.params.category_id}`)
         .then((response) => {
           this.$router.push("/admin/category-list");
         })
