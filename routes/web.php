@@ -21,20 +21,19 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'HomeController@admin')->name('admin');
-
 // Route::get('{anypath}','HomeController@index')->where('path','.*');
 // Route::get('{any}', function () {
 //     return view('admin.adminbase');
 // })->where('any','.*');
 
-Route::get('/admin/{vue?}', function () {
-    return view('admin.adminbase');
-})->where('vue', '[\/\w\.-]*')->name('admin');
-
 Route::get('/post','PostController@all_Post');
 
 Route::group(['middleware' => ['auth']], function () {
+    
+    Route::get('/admin/{vue?}', function () {
+        return view('admin.adminbase');
+    })->where('vue', '[\/\w\.-]*')->name('admin');
+
     //Category
     Route::post('/add-category','CategoryController@addCategory');
     Route::post('/check-category-validate','CategoryController@checkValidateCategory');
