@@ -31,15 +31,14 @@
     </div>
 
     <!--   Core JS Files   -->
-    @include('layouts.partials.script')
     @include('layouts.partials.script-sidebar')
     <!-- Sharrre libray -->
-    <script src="{{ asset('assets/demo/jquery.sharrre.js') }}"></script>
+    <!-- <script src="{{ asset('assets/demo/jquery.sharrre.js') }}"></script> -->
     @include('layouts.partials.script-sharrre')
     <noscript>
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&amp;ev=PageView&amp;noscript=1" />
     </noscript>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             // Javascript method's body can be found in assets/js/demos.js
             md.initDashboardPageCharts();
@@ -47,7 +46,7 @@
             md.initVectorMap();
 
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -10,6 +10,7 @@ import RegisterComponent from "./views/auth/RegisterComponent";
 import CategoryListComponent from "./components/admin/category/ListCategory";
 import CategoryNewComponent from "./components/admin/category/NewCategory"
 import CategoryEditComponent from "./components/admin/category/EditCategory"
+import AdminDashboard from "./components/admin/AdminDashboard"
 
 import PublicComponent from "./components/blog/PublicComponent";
 
@@ -20,24 +21,28 @@ const routes = [
          | Admin Backend Routes
          |--------------------------------------------------------------------------|
          */
-        path: '/dashboard',
+        path: '/admin',
         component: AdminBase, // Change the desired Layout here
         meta: { requiresAuth: true },
-        children: []
+        children: [
+            {
+                path: '',
+                component: AdminDashboard
+            },
+            {
+                path: 'category-list',
+                component: CategoryListComponent
+            },
+            {
+                path: 'add-category',
+                component: CategoryNewComponent
+            },
+            {
+                path: 'edit-category/:category_id',
+                component: CategoryEditComponent
+            },
+        ]
     },
-    {
-        path:'/category-list',
-        component:CategoryListComponent
-    },
-    {
-        path:'/add-category',
-        component:CategoryNewComponent
-    },
-    {
-        path:'/edit-category/:category_id',
-        component:CategoryEditComponent
-    },
-
     {
         path: '/register',
         name: 'register',
@@ -55,14 +60,14 @@ const routes = [
         }
     },
     {
-        path:'/',
-        component:PublicComponent
+        path: '/',
+        component: PublicComponent
     },
 ];
 
 const router = new VueRouter({
     routes,
-    mode: 'hash', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+    mode: 'history', //https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
     linkActiveClass: 'active'
 });
 

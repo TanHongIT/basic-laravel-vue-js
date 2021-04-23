@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     $(document).ready(function() {
         $().ready(function() {
             $sidebar = $('.sidebar');
@@ -168,4 +168,4 @@
             });
         });
     });
-</script>
+</script> -->
