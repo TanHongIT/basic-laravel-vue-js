@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`/edit-category/${this.$route.params.category_id}`)
+      .get(`/category/edit/${this.$route.params.category_id}`)
       .then((response) => {
         // update form data
         this.form.fill(response.data.category);
@@ -93,7 +93,7 @@ export default {
       this.form
         .post(`/admin/update-category/${this.$route.params.category_id}`)
         .then((response) => {
-          this.$router.push("/admin/category-list");
+          this.$router.push("/admin/category/list");
         })
         .catch(() => {});
     },

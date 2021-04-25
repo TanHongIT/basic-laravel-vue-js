@@ -36,6 +36,8 @@ Vue.component('public-blog', require('./components/blog/PublicComponent').defaul
 
 //auth
 Vue.component('account-login-component', require('./views/auth/LoginComponent').default);
+
+Vue.component('pagination', require('laravel-vue-pagination'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

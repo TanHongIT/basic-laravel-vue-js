@@ -84,9 +84,9 @@ export default {
     },
     addCategory() {
       this.form
-        .post("/admin/add-category")
+        .post("/admin/category/add")
         .then((response) => {
-          this.$router.push("/admin/category-list");
+          this.$router.push("/admin/category/list");
         })
         .catch(() => {});
     },
