@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <router-link to="/admin/add-category" class="btn btn-success">
+          <router-link to="/admin/category/add" class="btn btn-success">
             <span class="btn-label">
               <i class="material-icons">add</i>
             </span>
@@ -61,7 +61,7 @@
                       <td>{{ category.created_at | time_format }}</td>
                       <td class="text-right">
                         <router-link
-                          :to="`/admin/edit-category/${category.id}`"
+                          :to="`/admin/category/edit/${category.id}`"
                           class="btn btn-link btn-info btn-just-icon like"
                           ><i class="material-icons">edit</i></router-link
                         >
@@ -98,6 +98,7 @@ export default {
   data() {
     return {
       status_table: false,
+      categories: {},
     };
   },
   mounted() {
@@ -115,7 +116,7 @@ export default {
   methods: {
     deletecategory(id) {
       axios
-        .delete("/delete-a-category/" + id)
+        .delete("/admin/category/delete/" + id)
         .then((responses) => {
           this.$store.dispatch("allCategory");
           console.log(responses.data);

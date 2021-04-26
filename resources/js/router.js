@@ -30,15 +30,15 @@ const routes = [
                 component: AdminDashboard
             },
             {
-                path: 'category-list',
+                path: 'category/list',
                 component: CategoryListComponent
             },
             {
-                path: 'add-category',
+                path: 'category/add',
                 component: CategoryNewComponent
             },
             {
-                path: 'edit-category/:category_id',
+                path: 'category/edit/:category_id',
                 component: CategoryEditComponent
             },
         ]

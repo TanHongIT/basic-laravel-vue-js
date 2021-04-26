@@ -76,7 +76,7 @@ export default {
     //check validate form add category
     checkValidateCategory() {
       this.form
-        .post("/check-category-validate")
+        .post("/admin/check-category-validate")
         .then((response) => {
           console.log("Check OK");
         })
@@ -84,9 +84,9 @@ export default {
     },
     addCategory() {
       this.form
-        .post("/admin/add-category")
+        .post("/admin/category/add")
         .then((response) => {
-          this.$router.push("/category-list");
+          this.$router.push("/admin/category/list");
         })
         .catch(() => {});
     },

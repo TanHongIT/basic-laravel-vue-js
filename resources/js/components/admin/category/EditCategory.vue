@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`/edit-category/${this.$route.params.category_id}`)
+      .get(`/category/edit/${this.$route.params.category_id}`)
       .then((response) => {
         // update form data
         this.form.fill(response.data.category);
@@ -86,14 +86,14 @@ export default {
     //check validate form add category
     checkValidateCategory() {
       this.form
-        .post("/check-category-validate")
+        .post("/admin/check-category-validate")
         .catch(() => {});
     },
     updateCategory() {
       this.form
-        .post(`/update-category/${this.$route.params.category_id}`)
+        .post(`/admin/category/update/${this.$route.params.category_id}`)
         .then((response) => {
-          this.$router.push("/admin/category-list");
+          this.$router.push("/admin/category/list");
         })
         .catch(() => {});
     },
