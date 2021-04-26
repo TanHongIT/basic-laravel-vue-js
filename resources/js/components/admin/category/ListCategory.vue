@@ -110,14 +110,13 @@ export default {
   computed: {
     getallCategory() {
       this.status_table = true;
-      this.categories = this.$store.getters.getCategory;
       return this.$store.getters.getCategory;
     },
   },
   methods: {
     deletecategory(id) {
       axios
-        .delete("/admin/delete-a-category/" + id)
+        .delete("/admin/category/delete/" + id)
         .then((responses) => {
           this.$store.dispatch("allCategory");
           console.log(responses.data);

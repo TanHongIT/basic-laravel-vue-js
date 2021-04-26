@@ -21,7 +21,8 @@ class CategoryController extends Controller
         ], 200);
     }
 
-    public function checkValidateCategory(Request $request){
+    public function checkValidateCategory(Request $request)
+    {
         $this->validate($request, [
             'cat_name' => 'required|min:2|max:100',
             'cat_description' => 'required|min:2|max:10000'
@@ -54,8 +55,9 @@ class CategoryController extends Controller
     }
 
     // updates the category 
-    public function updateCategory (Request $request, $id){
-        $this->validate($request,[
+    public function updateCategory(Request $request, $id)
+    {
+        $this->validate($request, [
             'cat_name' => 'required|min:2|max:100',
             'cat_description' => 'required|min:2|max:10000'
         ]);
@@ -67,7 +69,8 @@ class CategoryController extends Controller
     }
 
     // deletes the category
-    public function deleteCategory ($id){
+    public function deleteCategory($id)
+    {
         $category = Category::find($id);
         $category->delete();
         return 'Deleted';

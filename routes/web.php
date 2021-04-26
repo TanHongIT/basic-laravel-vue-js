@@ -39,7 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/check-category-validate','CategoryController@checkValidateCategory');
     Route::get('get-all-category','CategoryController@allCategories');
     Route::get('/category/edit/{id}','CategoryController@editCategory');
-    Route::post('admin/update-category/{id}','CategoryController@updateCategory');
-    Route::get('/admin/delete-category/{id}','CategoryController@selected_category');
-    Route::delete('admin/delete-a-category/{id}','CategoryController@deleteCategory');
+    Route::post('admin/category/update/{id}','CategoryController@updateCategory');
+    Route::delete('admin/category/delete/{id}','CategoryController@deleteCategory');
 });

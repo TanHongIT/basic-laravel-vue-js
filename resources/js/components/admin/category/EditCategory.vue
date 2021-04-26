@@ -91,7 +91,7 @@ export default {
     },
     updateCategory() {
       this.form
-        .post(`/admin/update-category/${this.$route.params.category_id}`)
+        .post(`/admin/category/update/${this.$route.params.category_id}`)
         .then((response) => {
           this.$router.push("/admin/category/list");
         })
