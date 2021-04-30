@@ -179,6 +179,8 @@ return [
         // php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
+        Laravel\Passport\PassportServiceProvider::class,
+
     ],
 
     /*
