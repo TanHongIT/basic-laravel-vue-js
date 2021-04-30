@@ -2,7 +2,7 @@ require('./bootstrap');
 import router from './router';
 
 window.Vue = require('vue');
-import store from "./store";
+import store from "./store/index";
 
 // V-form: https://github.com/cretueusebiu/vform
 import { Form, HasError, AlertError } from 'vform'
