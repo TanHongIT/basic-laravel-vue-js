@@ -78,7 +78,7 @@
                           type="email"
                           class="form-control"
                           placeholder="Email..."
-                          v-model="email"
+                          v-model="user.email"
                           required
                         />
                       </div>
@@ -126,6 +126,13 @@ export default {
       password: "",
       error: false,
     };
+  },
+  computed:{
+    user:{
+      get(){
+        return this.$store.state.currentUser.user;
+      }
+    }
   },
   methods: {
     login() {},

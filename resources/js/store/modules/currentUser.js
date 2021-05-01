@@ -1,4 +1,8 @@
-const state = {};
+const state = {
+    user:{
+        email: 'admin@gmail.commm'
+    }
+};
 const getters = {};
 const actions = {};
 const mutations = {};
