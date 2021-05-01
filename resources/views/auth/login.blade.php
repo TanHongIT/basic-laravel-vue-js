@@ -1,4 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.auth.index')
+
+@section('content')
+<account-login-component></account-login-component>
+@endsection
+
+<!-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +76,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection -->

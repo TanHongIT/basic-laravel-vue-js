@@ -5,7 +5,7 @@
       <div class="page-header login-page header-filter" filter-color="black">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="container">
-          <div
+          <!-- <div
             class="alert alert-rose alert-with-icon"
             data-notify="container"
             v-if="error"
@@ -23,7 +23,7 @@
               >There was an error, unable to sign in with those
               credentials.</span
             >
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
               <form class="form" method="POST" @submit.prevent="login">
@@ -130,9 +130,7 @@
             </nav>
             <div class="copyright float-right">
               &copy; , made with <i class="material-icons">favorite</i> by
-              <a href="https://tanhongit.com/" target="_blank"
-                >Creative Tim</a
-              >
+              <a href="https://tanhongit.com/" target="_blank">Creative Tim</a>
               for a better web.
             </div>
           </div>
@@ -154,8 +152,7 @@ export default {
     };
   },
   methods: {
-    login() {
-    },
+    login() {},
   },
   mounted() {
     console.log("Component mounted.");
