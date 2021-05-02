@@ -23,10 +23,10 @@
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-             <router-link class="nav-link" to="/admin">
+            <router-link class="nav-link" to="/admin">
               <i class="material-icons">dashboard</i>
               <p class="d-lg-none d-md-block">Stats</p>
-             </router-link>
+            </router-link>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -75,7 +75,7 @@
               <a class="dropdown-item" href="#">Profile</a>
               <a class="dropdown-item" href="#">Settings</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Log out</a>
+              <button @click='logout' class="dropdown-item">Log out</button>
             </div>
           </li>
         </ul>
@@ -84,3 +84,18 @@
   </nav>
   <!-- End Navbar -->
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods:{
+    logout(){
+      axios.post('/logout')
+      .then(response=>{
+        window.location.href = 'login';
+      });
+    }
+  }
+};
+</script>

@@ -94,7 +94,7 @@
                           type="password"
                           class="form-control"
                           placeholder="Password..."
-                          v-model="password"
+                          v-model="user.password"
                           required
                         />
                       </div>
@@ -122,20 +122,24 @@ export default {
   components: { NavbarAuthLogin, FooterAuthLogin },
   data() {
     return {
-      email: "",
-      password: "",
+      user: {
+        email: "",
+        password: "",
+      },
       error: false,
     };
   },
-  computed:{
-    user:{
-      get(){
-        return this.$store.state.currentUser.user;
-      }
-    }
+  computed: {
+    // user:{
+    //   get(){
+    //     return this.$store.state.currentUser.user;
+    //   }
+    // }
   },
   methods: {
-    login() {},
+    login() {
+      this.$store.dispatch("currentUser/loginUser", this.user);
+    },
   },
   mounted() {
     console.log("Component mounted.");
